@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# linkz
 
-## Getting Started
+A link-in-bio profile builder: a public `/[username]` profile page paired with a `/studio` editor for customizing its theme, layout, and links in real time.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Public profile pages** — `/[username]` renders a shareable link-in-bio page (avatar, header, background, link list) with a `not-found` state for unknown usernames.
+- **Studio editor** — `/studio` is a live editor with a preview pane and control sections for profile info, avatar, layout, typography, accent color, background, button style, and overall "vibe."
+- **Theming system** — curated design tokens (accents, backgrounds, button styles, density, typography) plus ready-made presets (`minimal`, `editorial`, `luxury`, `retro`, `brutalist-demo`, `neon-demo`) under [src/theme](src/theme).
+- **Reducer-driven state** — profile content and theme edits (including history/undo) are managed via reducers in [src/content](src/content) and [src/theme](src/theme).
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Framework | [Next.js](https://nextjs.org) 16 (App Router) |
+| Language | TypeScript |
+| UI | React 19 |
+| Styling | Tailwind CSS 4, CSS Modules |
+| Icons | [lucide-react](https://lucide.dev) |
+| Linting | ESLint 9 (`eslint-config-next`) |
+
+## Project structure
+
+```
+src/
+  app/
+    [username]/    # public profile page + not-found state
+    studio/         # studio editor page
+  components/
+    profile/        # profile page UI (avatar, header, link list, background)
+    studio/          # studio editor UI (preview pane, context panel, section controls)
+  content/          # profile content types + editor reducer
+  lib/              # data access (get-profile) and seed data
+  theme/            # design tokens, curated options, presets, theme reducer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install dependencies and run the dev server:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) for the home page, a profile at `/[username]`, or the editor at `/studio`.
 
-To learn more about Next.js, take a look at the following resources:
+### Other scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build   # production build
+npm run start   # run the production build
+npm run lint    # eslint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Learn more
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
