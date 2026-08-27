@@ -1,0 +1,56 @@
+import type { Theme } from "./types";
+
+export const DEFAULT_THEME: Theme = {
+  id: "default",
+  name: "Default",
+  version: 1,
+  background: {
+    kind: "solid",
+    color: "#0a0a0a",
+  },
+  buttons: {
+    archetype: "solid",
+    background: { type: "solid", color: "#1a1a1a" },
+    textColor: "#f5f5f5",
+    border: { width: 1, color: "#2a2a2a", radius: 12 },
+    opacity: 1,
+    padding: { x: 20, y: 14 },
+    size: { width: "full", height: 52 },
+    font: { size: 15, weight: 500, letterSpacing: 0 },
+    alignment: "center",
+    icon: { show: false, placement: "left" },
+    hover: { scale: 1.02, transitionMs: 150 },
+  },
+  typography: {
+    heading: {
+      family: "system-ui, sans-serif",
+      size: 24,
+      weight: 700,
+      letterSpacing: 0,
+      lineHeight: 1.2,
+      color: "#ffffff",
+      align: "center",
+    },
+    body: {
+      family: "system-ui, sans-serif",
+      size: 15,
+      weight: 400,
+      letterSpacing: 0,
+      lineHeight: 1.5,
+      color: "#a3a3a3",
+      align: "center",
+    },
+  },
+  layout: {
+    contentWidth: 520,
+    verticalSpacing: 24,
+    horizontalPadding: 24,
+    sectionSpacing: 32,
+    buttonSpacing: 12,
+    profileAlignment: "center",
+    buttonWidth: "full",
+    borderRadius: 12,
+    avatar: { size: 96, shape: "circle" },
+    density: "comfortable",
+  },
+};

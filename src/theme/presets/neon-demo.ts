@@ -1,0 +1,70 @@
+import type { Theme } from "../types";
+
+// Cyberpunk / rave energy: animated gradient backdrop, glowing pill buttons.
+export const NEON_DEMO_THEME: Theme = {
+  id: "neon-demo",
+  name: "Neon",
+  version: 1,
+  background: {
+    kind: "gradient",
+    gradientType: "linear",
+    angle: 135,
+    stops: [
+      { color: "#ff00c8", position: 0 },
+      { color: "#7000ff", position: 50 },
+      { color: "#00e5ff", position: 100 },
+    ],
+    animated: { enabled: true, durationMs: 8000 },
+    effects: {
+      noise: { enabled: true, opacity: 0.06 },
+      vignette: { enabled: true, intensity: 0.4 },
+    },
+  },
+  buttons: {
+    archetype: "neon",
+    background: { type: "glass", color: "rgba(10, 0, 20, 0.35)", blur: 12 },
+    textColor: "#f5f9ff",
+    border: { width: 1.5, color: "#00e5ff", radius: 999 },
+    opacity: 1,
+    shadow: { color: "#00e5ff", blur: 24, spread: 0, glow: true },
+    padding: { x: 24, y: 16 },
+    size: { width: "full", height: 56 },
+    font: { size: 15, weight: 600, letterSpacing: 1.5 },
+    alignment: "center",
+    icon: { show: true, placement: "left" },
+    hover: { scale: 1.05, glow: true, transitionMs: 200 },
+  },
+  typography: {
+    heading: {
+      family: "'Orbitron', system-ui, sans-serif",
+      size: 30,
+      weight: 800,
+      letterSpacing: 1,
+      lineHeight: 1.15,
+      color: "#ffffff",
+      shadow: { color: "#00e5ff", blur: 20, offsetX: 0, offsetY: 0 },
+      align: "center",
+    },
+    body: {
+      family: "system-ui, sans-serif",
+      size: 15,
+      weight: 500,
+      letterSpacing: 0.3,
+      lineHeight: 1.5,
+      color: "rgba(255,255,255,0.85)",
+      align: "center",
+    },
+  },
+  layout: {
+    contentWidth: 480,
+    verticalSpacing: 20,
+    horizontalPadding: 20,
+    sectionSpacing: 28,
+    buttonSpacing: 14,
+    profileAlignment: "center",
+    buttonWidth: "full",
+    borderRadius: 999,
+    avatar: { size: 108, shape: "circle" },
+    density: "comfortable",
+  },
+};
